@@ -12,6 +12,7 @@ app.all('/*', function(req, res, next) {
 
 
 app.get('/app/:appID', playStore.getAppInfo);
+app.get('/keyword/:word', playStore.getSuggestion);
 
 
 var server = app.listen(3000, function () {
