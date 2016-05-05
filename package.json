@@ -1,0 +1,16 @@
+{
+  "name": "play_scraper",
+  "version": "1.0.0",
+  "description": "google play scraper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rat",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "google-play-scraper": "0.3.1",
+    "nodemon": "^1.9.2"
+  }
+}
