@@ -30,7 +30,6 @@ exports.getSuggestion = function (req, res) {
 
 exports.getReview = function(req, res){
     var appID = req.params.appID;
-    var filename = appID.split('.').join('-').concat('.txt');
     var pageID = req.params.page;
 
     gplay.reviews({
@@ -39,32 +38,11 @@ exports.getReview = function(req, res){
         sort: gplay.sort.NEWEST
     })
         .then(function(reviews){
-
-            var longTitle = "";
-            var longData = "";
-            reviews.forEach(function (review) {
-                longTitle += review.title;
-                longTitle += "\n";
-                longData += review.text;
-                longData += "\n";
-            })
-            /*fs.appendFile(filename, longTitle, function (err) {
-                if (err) {
-                    res.status(400).json({ error: 'Error in Title File Writer.' })
-                }
-                console.log('Title File saved!');
-            });*/
-            fs.appendFile(filename, longData, function (err) {
-                if (err) {
-                    res.status(400).json({ error: 'Error in Text File Writer.' })
-                }
-                console.log('Text File saved!');
-            });
             res.json(reviews);
             //console.log('Retrieved application: ' + longData);
         })
         .catch(function(e){
-            res.status(400).json({ error: 'Not found.' })
+            res.status(400).json({ error: e })
             //console.log('There was an error fetching the application!');
         });
 }
