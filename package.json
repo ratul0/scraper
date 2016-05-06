@@ -9,8 +9,10 @@
   "author": "rat",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.0.0-rc.4",
     "express": "^4.13.4",
     "google-play-scraper": "0.3.1",
-    "nodemon": "^1.9.2"
+    "nodemon": "^1.9.2",
+    "request": "^2.72.0"
   }
 }
