@@ -30,6 +30,7 @@ exports.getSuggestion = function (req, res) {
 
 exports.getReview = function(req, res){
     var appID = req.params.appID;
+    var filename = appID.split('.').join('-').concat('.txt');
     var pageID = req.params.page;
 
     gplay.reviews({
@@ -47,13 +48,13 @@ exports.getReview = function(req, res){
                 longData += review.text;
                 longData += "\n";
             })
-            fs.appendFile('title-fpl.txt', longTitle, function (err) {
+            /*fs.appendFile(filename, longTitle, function (err) {
                 if (err) {
                     res.status(400).json({ error: 'Error in Title File Writer.' })
                 }
                 console.log('Title File saved!');
-            });
-            fs.appendFile('text-fpl.txt', longData, function (err) {
+            });*/
+            fs.appendFile(filename, longData, function (err) {
                 if (err) {
                     res.status(400).json({ error: 'Error in Text File Writer.' })
                 }
